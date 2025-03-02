@@ -7,13 +7,12 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { logout } from "@/services/auth"
 import { useAuth } from "@/store/useAuthStore"
 import { BookOpen } from "lucide-react"
 import { Link, useNavigate } from "react-router"
 
 const Header = () => {
-	const { user } = useAuth()
+	const { user, logout } = useAuth()
 	const navigate = useNavigate()
 	const handleLogout = async () => {
 		await logout()

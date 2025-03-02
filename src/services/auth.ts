@@ -1,4 +1,3 @@
-import { useAuthStore } from "@/store/useAuthStore"
 import api from "@/utils/api"
 
 // Profile endpoints
@@ -13,14 +12,12 @@ export const fetchUserProfile = async () => {
 }
 
 // Auth endpoints
-export const logout = async () => {
+export const logoutService = async () => {
 	try {
-		const { logout } = useAuthStore.getState()
-		const { data } = await api.get("/auth/logout")
-		logout()
-		return data
+		await api.get("/auth/logout")
 	} catch (error) {
-		console.error("Error during logout:", error)
-		throw error
+		console.error("Error logging out:", error)
 	}
 }
+
+// Other auth related service functions can be added here
