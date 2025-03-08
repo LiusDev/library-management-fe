@@ -1,19 +1,12 @@
 import { create } from "zustand"
 import { logoutService } from "@/services/auth"
-
-export interface User {
-	_id: string
-	username: string
-	email: string
-	avatar?: string
-	role: "user" | "admin"
-}
+import { UserProfile } from "@/types"
 
 interface AuthState {
-	user: User | null
+	user: UserProfile | null
 	isAuthenticated: boolean
 	isLoading: boolean
-	setUser: (user: User | null) => void
+	setUser: (user: UserProfile | null) => void
 	setIsAuthenticated: (value: boolean) => void
 	setIsLoading: (value: boolean) => void
 	logout: () => Promise<void>

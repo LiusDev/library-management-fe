@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button"
 import { ChevronRight } from "lucide-react"
 import { Link } from "react-router"
 
-console.log(import.meta.env.MODE)
-
 function HomePage() {
 	return (
 		<main className="flex-1">
@@ -144,86 +142,6 @@ function HomePage() {
 							bookCount={42}
 							color="bg-purple-100"
 						/>
-					</div>
-				</div>
-			</section>
-
-			<section className="w-full py-12 md:py-24 lg:py-32">
-				<div className="container mx-auto px-4 md:px-6">
-					<div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
-						<img
-							src="/placeholder.svg?height=550&width=450"
-							width={550}
-							height={450}
-							alt="Person reading a book"
-							className="mx-auto aspect-video overflow-hidden rounded-xl object-cover sm:w-full"
-						/>
-						<div className="flex flex-col justify-center space-y-4">
-							<div className="space-y-2">
-								<h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-									How It Works
-								</h2>
-								<p className="max-w-[600px] text-muted-foreground md:text-xl">
-									Borrowing books has never been easier.
-									Follow these simple steps to get started.
-								</p>
-							</div>
-							<ul className="grid gap-6">
-								<li className="flex items-start gap-4">
-									<div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
-										1
-									</div>
-									<div className="space-y-1">
-										<h3 className="text-xl font-bold">
-											Browse our collection
-										</h3>
-										<p className="text-muted-foreground">
-											Explore our extensive library of
-											books across various genres and
-											topics.
-										</p>
-									</div>
-								</li>
-								<li className="flex items-start gap-4">
-									<div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
-										2
-									</div>
-									<div className="space-y-1">
-										<h3 className="text-xl font-bold">
-											Select your books
-										</h3>
-										<p className="text-muted-foreground">
-											Choose the books you want to borrow
-											and add them to your reading list.
-										</p>
-									</div>
-								</li>
-								<li className="flex items-start gap-4">
-									<div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
-										3
-									</div>
-									<div className="space-y-1">
-										<h3 className="text-xl font-bold">
-											Set borrowing duration
-										</h3>
-										<p className="text-muted-foreground">
-											Select how long you'd like to borrow
-											each book, from 1 to 4 weeks.
-										</p>
-									</div>
-								</li>
-							</ul>
-							<div className="flex flex-col gap-2 min-[400px]:flex-row">
-								<Link to="/books">
-									<Button size="lg">Start Borrowing</Button>
-								</Link>
-								<Link to="/about">
-									<Button size="lg" variant="outline">
-										Learn More
-									</Button>
-								</Link>
-							</div>
-						</div>
 					</div>
 				</div>
 			</section>
