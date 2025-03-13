@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button"
 import { API_URL } from "@/utils/api"
 import { Loader2 } from "lucide-react"
 import { useState } from "react"
-import { Link } from "react-router"
 
 const LoginPage = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -28,12 +27,11 @@ const LoginPage = () => {
 		<div className="min-h-screen w-full flex flex-col md:flex-row">
 			{/* Left side - Image */}
 			<div className="hidden md:flex md:w-1/2 relative bg-primary/10">
-				<div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent z-10" />
+				<div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent z-10 backdrop-blur-xs" />
 				<img
-					src="/placeholder.svg?height=1080&width=1080"
+					src="/login-banner.jpg"
 					alt="Books on shelves"
 					className="object-cover"
-					sizes="(max-width: 768px) 0vw, 50vw"
 				/>
 				<div className="absolute inset-0 flex flex-col justify-center items-start p-12 z-20">
 					<h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-md">
@@ -77,7 +75,6 @@ const LoginPage = () => {
 
 						<div className="space-y-4">
 							<Button
-								variant="outline"
 								className="w-full relative h-12 text-base"
 								onClick={handleGoogleSignIn}
 								disabled={isLoading}
@@ -88,22 +85,6 @@ const LoginPage = () => {
 									<GoogleIcon className="mr-2 h-5 w-5" />
 								)}
 								Sign in with Google
-							</Button>
-
-							<div className="flex items-center justify-center">
-								<div className="h-px bg-border flex-1"></div>
-								<span className="px-4 text-sm text-muted-foreground">
-									or continue as guest
-								</span>
-								<div className="h-px bg-border flex-1"></div>
-							</div>
-
-							<Button
-								variant="ghost"
-								className="w-full h-12 text-base"
-								asChild
-							>
-								<Link to="/">Browse Books</Link>
 							</Button>
 						</div>
 					</div>

@@ -1,6 +1,6 @@
 import { redirect } from "react-router"
 import { useAuthStore } from "@/store/useAuthStore"
-import { fetchUserProfile } from "@/services/auth"
+import { fetchUserProfile } from "@/services/auth.service"
 
 // For non-authenticated pages (login, register)
 export const nonAuthLoader = async () => {

@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { logoutService } from "@/services/auth"
+import { logoutService } from "@/services/auth.service"
 import { UserProfile } from "@/types"
 
 interface AuthState {

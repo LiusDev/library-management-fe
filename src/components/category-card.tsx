@@ -2,29 +2,25 @@ import { ChevronRight } from "lucide-react"
 
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Link } from "react-router"
+import { Category } from "@/types"
 
 interface CategoryCardProps {
-	name: string
-	icon: string
-	bookCount: number
+	category: Category & {
+		bookCount: number
+	}
 	color: string
 }
 
-export default function CategoryCard({
-	name,
-	icon,
-	bookCount,
-	color,
-}: CategoryCardProps) {
+export default function CategoryCard({ category, color }: CategoryCardProps) {
 	return (
-		<Link to={`/categories/${name.toLowerCase().replace(/\s+/g, "-")}`}>
+		<Link to={`/categories/${category._id}`}>
 			<Card className="overflow-hidden p-0 transition-all hover:shadow-lg">
 				<CardContent className={`flex items-center gap-4 p-6 ${color}`}>
-					<div className="text-4xl">{icon}</div>
+					<div className="text-4xl">📚</div>
 					<div className="space-y-1">
-						<h3 className="font-bold">{name}</h3>
+						<h3 className="font-bold">{category.name}</h3>
 						<p className="text-sm text-muted-foreground">
-							{bookCount} books
+							{category.bookCount} books
 						</p>
 					</div>
 				</CardContent>

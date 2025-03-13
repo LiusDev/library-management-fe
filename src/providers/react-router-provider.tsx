@@ -1,6 +1,7 @@
 import AuthLayout from "@/pages/(auth)/layout"
 import LoginPage from "@/pages/(auth)/login"
 import HomePage from "@/pages/(main)"
+import BooksPage from "@/pages/(main)/book"
 import MainLayout from "@/pages/(main)/layout"
 import ErrorPage from "@/pages/404"
 import { authLoader, nonAuthLoader } from "@/utils/loader"
@@ -33,8 +34,14 @@ const routers = createBrowserRouter([
 						element: <HomePage />,
 					},
 					{
-						path: "/auth-page",
-						element: <div>Auth Page</div>,
+						path: "/books",
+						element: <Outlet />,
+						children: [
+							{
+								index: true,
+								element: <BooksPage />,
+							},
+						],
 					},
 				],
 			},

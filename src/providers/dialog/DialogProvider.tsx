@@ -64,6 +64,7 @@ export function DialogProvider({ children }: { children: React.ReactNode }) {
 	)
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useDialog = () => {
 	const context = useContext(DialogContext)
 	if (!context) {
