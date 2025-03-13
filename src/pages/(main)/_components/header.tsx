@@ -26,29 +26,14 @@ const Header = () => {
 					<span className="text-xl font-bold">BookBuddy</span>
 				</Link>
 				<nav className="hidden md:flex gap-6">
-					<Link
-						to="/"
-						className="text-sm font-medium hover:underline underline-offset-4"
-					>
+					<Link to="/" className="text-sm font-medium">
 						Home
 					</Link>
-					<Link
-						to="/books"
-						className="text-sm font-medium hover:underline underline-offset-4"
-					>
+					<Link to="/books" className="text-sm font-medium">
 						Books
 					</Link>
-					<Link
-						to="/categories"
-						className="text-sm font-medium hover:underline underline-offset-4"
-					>
+					<Link to="/categories" className="text-sm font-medium">
 						Categories
-					</Link>
-					<Link
-						to="/about"
-						className="text-sm font-medium hover:underline underline-offset-4"
-					>
-						About
 					</Link>
 				</nav>
 				<div className="flex items-center gap-4">

@@ -1,7 +1,8 @@
 import AuthLayout from "@/pages/(auth)/layout"
 import LoginPage from "@/pages/(auth)/login"
 import HomePage from "@/pages/(main)"
-import BooksPage from "@/pages/(main)/book"
+import BooksPage from "@/pages/(main)/books"
+import CategoriesPage from "@/pages/(main)/categories"
 import MainLayout from "@/pages/(main)/layout"
 import ErrorPage from "@/pages/404"
 import { authLoader, nonAuthLoader } from "@/utils/loader"
@@ -40,6 +41,16 @@ const routers = createBrowserRouter([
 							{
 								index: true,
 								element: <BooksPage />,
+							},
+						],
+					},
+					{
+						path: "/categories",
+						element: <Outlet />,
+						children: [
+							{
+								index: true,
+								element: <CategoriesPage />,
 							},
 						],
 					},

@@ -1,4 +1,5 @@
-import BookCard from "@/components/book-card"
+import BookCard, { BookCardSkeleton } from "@/components/book-card"
+import { Button } from "@/components/ui/button"
 import { useBooks } from "@/services/book.service"
 import { ChevronRight } from "lucide-react"
 import { Suspense, useMemo } from "react"
@@ -33,14 +34,21 @@ const BooksSection = () => {
 							Our most popular books that readers can't put down.
 						</p>
 					</div>
-					<Link
-						to="/books"
-						className="flex items-center gap-1 text-primary hover:underline"
-					>
-						View all books <ChevronRight className="h-4 w-4" />
-					</Link>
+					<Button variant={"ghost"} asChild>
+						<Link to="/books">
+							View all books <ChevronRight className="h-4 w-4" />
+						</Link>
+					</Button>
 				</div>
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense
+					fallback={
+						<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8">
+							{[...Array(4)].map((_, index) => (
+								<BookCardSkeleton key={index} />
+							))}
+						</div>
+					}
+				>
 					<ListBooks />
 				</Suspense>
 			</div>

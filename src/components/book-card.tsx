@@ -2,6 +2,7 @@ import { Clock } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Skeleton } from "@/components/ui/skeleton"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Link } from "react-router"
 import { Book } from "@/types"
@@ -9,6 +10,24 @@ import { Book } from "@/types"
 interface BookCardProps {
 	book: Book
 }
+
+export const BookCardSkeleton = () => (
+	<Card className="overflow-hidden pt-0">
+		<Skeleton className="aspect-[4/5] w-full" />
+		<CardHeader className="px-4 pt-0">
+			<Skeleton className="w-1/2" />
+			<Skeleton className="w-1/4" />
+		</CardHeader>
+		<CardContent className="px-4 pt-0 flex flex-wrap gap-2">
+			<Skeleton className="w-1/4" />
+			<Skeleton className="w-1/4" />
+			<Skeleton className="w-1/4" />
+		</CardContent>
+		<CardFooter className="p-4 pt-0 pb-0">
+			<Skeleton className="w-full" />
+		</CardFooter>
+	</Card>
+)
 
 export default function BookCard({ book }: BookCardProps) {
 	return (

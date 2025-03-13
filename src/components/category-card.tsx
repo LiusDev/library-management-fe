@@ -1,6 +1,7 @@
 import { ChevronRight } from "lucide-react"
 
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import { Skeleton } from "@/components/ui/skeleton"
 import { Link } from "react-router"
 import { Category } from "@/types"
 
@@ -10,6 +11,21 @@ interface CategoryCardProps {
 	}
 	color: string
 }
+
+export const CategoryCardSkeleton = () => (
+	<Card className="overflow-hidden p-0">
+		<CardContent className="flex items-center gap-4 p-6">
+			<Skeleton className="w-12 h-12 rounded-full" />
+			<div className="space-y-1">
+				<Skeleton className="w-24 h-4" />
+				<Skeleton className="w-16 h-3" />
+			</div>
+		</CardContent>
+		<CardFooter className="p-4 flex justify-end">
+			<Skeleton className="w-16 h-4" />
+		</CardFooter>
+	</Card>
+)
 
 export default function CategoryCard({ category, color }: CategoryCardProps) {
 	return (

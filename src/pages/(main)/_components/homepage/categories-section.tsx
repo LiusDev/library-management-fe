@@ -1,4 +1,5 @@
-import CategoryCard from "@/components/category-card"
+import CategoryCard, { CategoryCardSkeleton } from "@/components/category-card"
+import { Button } from "@/components/ui/button"
 import { useCategories } from "@/services/category.service"
 import { categoryBgColors } from "@/utils/constant"
 import { ChevronRight } from "lucide-react"
@@ -35,14 +36,23 @@ const CategoriesSection = () => {
 							Find your favorite genre or discover something new.
 						</p>
 					</div>
-					<Link
-						to="/categories"
-						className="flex items-center gap-1 text-primary hover:underline"
-					>
-						View all categories <ChevronRight className="h-4 w-4" />
-					</Link>
+
+					<Button variant={"ghost"} asChild>
+						<Link to="/categories">
+							View all categories{" "}
+							<ChevronRight className="h-4 w-4" />
+						</Link>
+					</Button>
 				</div>
-				<Suspense fallback={<div>Loading...</div>}>
+				<Suspense
+					fallback={
+						<div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+							{Array.from({ length: 4 }).map((_, index) => (
+								<CategoryCardSkeleton key={index} />
+							))}
+						</div>
+					}
+				>
 					<CategoriesList />
 				</Suspense>
 			</div>
