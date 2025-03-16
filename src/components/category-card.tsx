@@ -29,7 +29,7 @@ export const CategoryCardSkeleton = () => (
 
 export default function CategoryCard({ category, color }: CategoryCardProps) {
 	return (
-		<Link to={`/categories/${category._id}`}>
+		<Link to={`/books?categories=${category._id}`}>
 			<Card className="overflow-hidden p-0 transition-all hover:shadow-lg">
 				<CardContent className={`flex items-center gap-4 p-6 ${color}`}>
 					<div className="text-4xl">📚</div>

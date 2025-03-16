@@ -45,3 +45,28 @@ export const useBooks = (
 			getAllBooks({ keyword, categories, order, sort, page, limit }),
 	})
 }
+
+const getBookById = async (id: string | undefined) => {
+	if (!id) return
+	const { data } = await api.get<Book>(`/v1/books/${id}`)
+	return data
+}
+
+export const useBook = (id: string | undefined) => {
+	return useSuspenseQuery({
+		queryKey: ["book", id],
+		queryFn: () => getBookById(id),
+	})
+}
+
+export const borrowBook = async (
+	bookId: string | undefined,
+	period: string
+) => {
+	if (!bookId || !period) return
+	const { data } = await api.post("/v1/books/borrow", {
+		bookId,
+		time: +period,
+	})
+	return data
+}

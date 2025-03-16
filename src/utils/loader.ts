@@ -48,7 +48,10 @@ export const authLoader = async () => {
 	try {
 		// Try to fetch the user profile using the access_token in cookies
 		const user = await fetchUserProfile()
-
+		// If user dont have phone number, reidrect to add-phone page
+		if (!user.phone) {
+			return redirect("/add-phone")
+		}
 		// If successful, update auth store and allow access
 		useAuthStore.setState({
 			user,

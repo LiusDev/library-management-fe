@@ -20,4 +20,12 @@ export const logoutService = async () => {
 	}
 }
 
-// Other auth related service functions can be added here
+export const addPhoneNumber = async (phone: string) => {
+	try {
+		await api.post("/auth/phone", {
+			phone,
+		})
+	} catch (error) {
+		console.error("Error add phone", error)
+	}
+}

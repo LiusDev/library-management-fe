@@ -69,9 +69,11 @@ export default function BookCard({ book }: BookCardProps) {
 			</CardContent>
 			<CardFooter className="p-4 pt-0 pb-0">
 				{book.quantity > 0 ? (
-					<Button className="w-full" size="sm">
-						<Clock className="mr-2 h-4 w-4" />
-						Borrow Now
+					<Button className="w-full" size="sm" asChild>
+						<Link to={`/books/${book._id}`}>
+							<Clock className="mr-2 h-4 w-4" />
+							Borrow Now
+						</Link>
 					</Button>
 				) : (
 					<Button

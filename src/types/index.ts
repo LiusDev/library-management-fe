@@ -27,6 +27,7 @@ export interface Book {
 	author: string
 	publishedDate: string
 	quantity: number
+	available: number
 	cover: string
 	category: Category[]
 	createdAt: string
