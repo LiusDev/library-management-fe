@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge"
-import { Link, useParams } from "react-router"
+import { Link, useNavigate, useParams } from "react-router"
 import { borrowBook, useBook, useBooks } from "@/services/book.service"
 import ErrorPage from "@/pages/404"
 import { format, parseISO } from "date-fns"
@@ -22,12 +22,14 @@ const ConfirmBorrowDialog = ({
 }) => {
 	const dialog = useDialog()
 	const [loading, setLoading] = useState(false)
+	const navigate = useNavigate()
 	const handleBorrow = async () => {
 		setLoading(true)
 		try {
 			await borrowBook(book?._id, period)
 			toast.success("Book borrowed successfully")
 			dialog.closeAll()
+			navigate("/borrow-transactions")
 		} catch (error) {
 			console.error(error)
 			toast.error("An error occurred while borrowing the book")

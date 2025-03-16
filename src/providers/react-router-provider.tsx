@@ -4,6 +4,7 @@ import LoginPage from "@/pages/(auth)/login"
 import HomePage from "@/pages/(main)"
 import BooksPage from "@/pages/(main)/books"
 import BookDetailsPage from "@/pages/(main)/books/[bookId]"
+import BorrowTransactionsPage from "@/pages/(main)/borrow-transactions"
 import CategoriesPage from "@/pages/(main)/categories"
 import MainLayout from "@/pages/(main)/layout"
 import ErrorPage from "@/pages/404"
@@ -67,6 +68,16 @@ const routers = createBrowserRouter([
 							{
 								index: true,
 								element: <CategoriesPage />,
+							},
+						],
+					},
+					{
+						path: "/borrow-transactions",
+						element: <Outlet />,
+						children: [
+							{
+								index: true,
+								element: <BorrowTransactionsPage />,
 							},
 						],
 					},

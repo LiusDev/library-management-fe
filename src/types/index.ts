@@ -33,3 +33,21 @@ export interface Book {
 	createdAt: string
 	updatedAt: string
 }
+
+export enum BorrowStatus {
+	CHECKING = "checking",
+	BORROWED = "borrowed",
+	RETURNED = "returned",
+}
+
+export interface BorrowTransaction {
+	_id: string
+	user: string
+	book: Book
+	borrowDate: string
+	dueDate: string
+	status: BorrowStatus
+	returnDate: string | undefined
+	createdAt: string
+	updatedAt: string
+}

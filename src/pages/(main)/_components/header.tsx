@@ -11,6 +11,13 @@ import { useAuth } from "@/store/useAuthStore"
 import { BookOpen } from "lucide-react"
 import { Link, useNavigate } from "react-router"
 
+const navItems = [
+	{ label: "Home", to: "/" },
+	{ label: "Books", to: "/books" },
+	{ label: "Categories", to: "/categories" },
+	{ label: "Borrowed", to: "/borrow-transactions" },
+]
+
 const Header = () => {
 	const { user, logout } = useAuth()
 	const navigate = useNavigate()
@@ -26,15 +33,15 @@ const Header = () => {
 					<span className="text-xl font-bold">BookBuddy</span>
 				</Link>
 				<nav className="hidden md:flex gap-6">
-					<Link to="/" className="text-sm font-medium">
-						Home
-					</Link>
-					<Link to="/books" className="text-sm font-medium">
-						Books
-					</Link>
-					<Link to="/categories" className="text-sm font-medium">
-						Categories
-					</Link>
+					{navItems.map((item) => (
+						<Link
+							key={item.to}
+							to={item.to}
+							className="text-gray-600 hover:text-gray-900"
+						>
+							{item.label}
+						</Link>
+					))}
 				</nav>
 				<div className="flex items-center gap-4">
 					<DropdownMenu>
