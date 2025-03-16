@@ -48,6 +48,14 @@ export const authLoader = async () => {
 	try {
 		// Try to fetch the user profile using the access_token in cookies
 		const user = await fetchUserProfile()
+		if (user.status === "banned") {
+			useAuthStore.setState({
+				user: null,
+				isAuthenticated: false,
+				isLoading: false,
+			})
+			return redirect("/login")
+		}
 		// If user dont have phone number, reidrect to add-phone page
 		if (!user.phone) {
 			return redirect("/add-phone")

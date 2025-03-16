@@ -1,9 +1,10 @@
+import { UserProfile } from "@/types"
 import api from "@/utils/api"
 
 // Profile endpoints
 export const fetchUserProfile = async () => {
 	try {
-		const { data } = await api.get("/auth/profile")
+		const { data } = await api.get<UserProfile>("/auth/profile")
 		return data
 	} catch (error) {
 		console.error("Error fetching user profile:", error)

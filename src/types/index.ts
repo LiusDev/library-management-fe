@@ -4,6 +4,8 @@ export interface UserProfile {
 	email: string
 	role: "user" | "staff" | "admin"
 	avatar: string
+	status: "active" | "banned"
+	phone: string | null
 	createdAt: string
 	updatedAt: string
 }
