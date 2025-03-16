@@ -11,15 +11,16 @@ import ErrorPage from "@/pages/404"
 import AddPhonePage from "@/pages/add-phone"
 import { authLoader, nonAuthLoader } from "@/utils/loader"
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router"
+import { DialogProvider } from "./dialog/DialogProvider"
 
 const routers = createBrowserRouter([
 	{
 		path: "/",
 		element: (
-			<>
+			<DialogProvider>
 				<Outlet />
 				<Toaster />
-			</>
+			</DialogProvider>
 		),
 		errorElement: <ErrorPage />,
 		children: [
