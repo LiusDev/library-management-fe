@@ -1,6 +1,9 @@
+import { useAuth } from "@/store/useAuthStore"
 import { PhoneNumberForm } from "./_components/phone-number-form"
 
 const AddPhonePage = () => {
+	const { user } = useAuth()
+	if (!user) return null
 	return (
 		<div className="container mx-auto flex items-center justify-center min-h-screen py-12">
 			<div className="w-full max-w-md space-y-6">
