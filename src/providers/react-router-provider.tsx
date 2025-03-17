@@ -37,6 +37,7 @@ const routers = createBrowserRouter([
 			},
 			{
 				path: "/add-phone",
+				loader: authLoader,
 				element: <AddPhonePage />,
 			},
 			{
